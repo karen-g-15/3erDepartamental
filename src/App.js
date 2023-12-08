@@ -3,7 +3,7 @@ import './fondo/App.css';
 
 // Importación de componentes React
 import React, { useState } from 'react';
-
+import {auth, google} from './componentes/firebase/google';
 // Importación de componentes personalizados
 import ComponenteForm from './componentes/componenteForm';
 import EdadPerro from './componentes/componenteEdadP';
@@ -15,6 +15,20 @@ import Datos from './componentes/componenteDatos';
 
 // Definición del componente funcional App
 function App() {
+  const [user, setUser] = useState(null)
+  const[photo, setPhoto]= useState(null)
+  const [displayname, setDisplayName]=useState(null);
+  const loginGoogle = () => {
+    auth.signInWithPopup(google)
+    .then(respuesta =>{
+      setUser(respuesta.user)
+      setPhoto(respuesta.user.photoURL)
+      setDisplayName(respuesta.user.displayname)
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
+
   // Estado para almacenar las operaciones de edad de perro
   const [operaciones, setOperacion] = useState([]);
 
@@ -85,6 +99,21 @@ function App() {
         <center>Hola esta es mi primera práctica en React</center>
       </h2>
       <center>
+
+        <h1>Login con google</h1>
+        <button className='boton' onClick={loginGoogle}>Login con google</button><br />
+        {
+          photo ?
+          (
+            <div>
+              <img height="150" src={photo} alt='photo usuario'/>
+              <p>{displayname}</p>
+            </div>
+          ):
+          (
+            <span></span>
+          )
+        }
         {/* Botones y módulos para habilitar/deshabilitar */}
         <button class='boton' onClick={toggleAgeModule}>
           {isAgeModuleEnabled ? 'Deshabilitar Módulo Edad Canina' : 'Habilitar Módulo Edad Canina'}
