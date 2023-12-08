@@ -1,0 +1,57 @@
+.botones {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.botones:hover {
+  background-color: #45a049;
+}
+.botones:active {
+  background-color: #3e8e41;
+}
+
+.boton{
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-size: 120% auto;
+  background-image: linear-gradient(315deg, #43cea2 0%, #185a9d 75%);
+}
+.boton {
+  background-position: right center;
+}
+.boton {
+  top: 2px;
+}
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        body {
+          background-color: #CDBAFA;
+        }
